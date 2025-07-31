@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cute Cursor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0; height: 100%; background: #fff0f5; overflow: hidden;
+    }
+    #cursor {
+      width: 40px; height: 40px;
+      position: absolute;
+      background-image: url('https://i.imgur.com/Y7WvYI6.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  <div id="cursor"></div>
+
+  <script>
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('touchmove', (e) => {
+      const touch = e.touches[0];
+      cursor.style.left = `${touch.clientX}px`;
+      cursor.style.top = `${touch.clientY}px`;
+    }, { passive: true });
+  </script>
+</body>
+</html>
